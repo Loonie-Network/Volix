@@ -105,7 +105,7 @@ public:
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // Volix: 1 day
-        nTargetTimespantesting = 1 * 10;
+        // nTargetTimespantesting = 1 * 10;
         nTargetSpacing = 1 * 60;  // Volix: 1 minute
         nLastPOWBlock = 550;
         nMaturity = 50;
