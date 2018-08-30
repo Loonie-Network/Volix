@@ -1617,7 +1617,7 @@ int64_t GetSubsidy(int nHeight)
 
     if (nHeight == 1) {
         nSubsidy = 1000000 * COIN;
-    } else if (nHeight <= GetlastPOWBlock()) {     // Premine
+    } else if (nHeight <= Params().LAST_POW_BLOCK()) {     // Premine
         nSubsidy = 0.2 * COIN;
     } else if (nHeight > 719 && nHeight < 9999) {
         nSubsidy = 1 * COIN;
