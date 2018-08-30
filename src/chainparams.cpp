@@ -278,13 +278,12 @@ public:
         nTargetTimespan = 24 * 60 * 60; // Volix: 1 day
         nTargetSpacing = 1 * 60;        // Volix: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1517542208;
-        genesis.nBits = 0x207fffff;
-        genesis.nNonce = 906460;
+          genesis.nTime = 1517542208;
+        genesis.nNonce = 2361205;
 
-        hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 39793;
-        assert(hashGenesisBlock == uint256("00000d885e2813770fd59e71010b6b62a9b0609655109bf4e1b24c3bd524ae0c"));
+        hashGenesisBlock = genesis.GetHash();
+        assert(hashGenesisBlock == uint256("0000003be7a98ea4ce83059f959b43ac7d94123de347be489f0f0767d90bc8de"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
