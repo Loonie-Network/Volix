@@ -95,7 +95,7 @@ public:
 };
 
 /**
- * LightPayCoin RPC command dispatcher.
+ * Volix RPC command dispatcher.
  */
 class CRPCTable
 {

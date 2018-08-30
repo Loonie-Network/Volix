@@ -1,0 +1,28 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/volix_bg.qm</file>
+        <file alias="ca">locale/volix_ca.qm</file>
+        <file alias="cs">locale/volix_cs.qm</file>
+        <file alias="da">locale/volix_da.qm</file>
+        <file alias="de">locale/volix_de.qm</file>
+        <file alias="en">locale/volix_en.qm</file>
+        <file alias="en_US">locale/volix_en_US.qm</file>
+        <file alias="es">locale/volix_es.qm</file>
+        <file alias="fi">locale/volix_fi.qm</file>
+        <file alias="fr_FR">locale/volix_fr_FR.qm</file>
+        <file alias="it">locale/volix_it.qm</file>
+        <file alias="ja">locale/volix_ja.qm</file>
+        <file alias="ko_KR">locale/volix_ko_KR.qm</file>
+        <file alias="nl">locale/volix_nl.qm</file>
+        <file alias="pl">locale/volix_pl.qm</file>
+        <file alias="pt">locale/volix_pt.qm</file>
+        <file alias="pt_BR">locale/volix_pt_BR.qm</file>
+        <file alias="ro_RO">locale/volix_ro_RO.qm</file>
+        <file alias="ru">locale/volix_ru.qm</file>
+        <file alias="sk">locale/volix_sk.qm</file>
+        <file alias="sv">locale/volix_sv.qm</file>
+        <file alias="uk">locale/volix_uk.qm</file>
+        <file alias="zh_CN">locale/volix_zh_CN.qm</file>
+        <file alias="zh_TW">locale/volix_zh_TW.qm</file>
+    </qresource>
+</RCC>

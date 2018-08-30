@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The LightPayCoin developers
+// Copyright (c) 2018 The Volix developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -54,10 +54,10 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("00000dfdec6a9190b26520e93ef5eba15a82646a47ddf8fb5be4477a836467ee"));
+    (0, uint256("0000003be7a98ea4ce83059f959b43ac7d94123de347be489f0f0767d90bc8de"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1524873600, // * UNIX timestamp of last checkpoint block
+    1517542208, // * UNIX timestamp of last checkpoint block
     0,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -67,7 +67,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of(0, uint256("0x001"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1524873600,
+    1517542208,
     0,
     250};
 
@@ -75,7 +75,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of(0, uint256("0x001"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1524873600,
+    1517542208,
     0,
     100};
 
@@ -91,26 +91,27 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x6e;
-        pchMessageStart[1] = 0x72;
-        pchMessageStart[2] = 0x4f;
-        pchMessageStart[3] = 0x5a;
+        pchMessageStart[0] = 0x6a;
+        pchMessageStart[1] = 0x71;
+        pchMessageStart[2] = 0x41;
+        pchMessageStart[3] = 0x5d;
         vAlertPubKey = ParseHex("040d75796902e3eda97815d744328237872309a95b42a74b22d7580e56b086fbc19ae1d6ef30c9e27d060c9c48692a663b9a321161e19f853ca6a6499cba7d17f6");
-        nDefaultPort = 39797;
-        bnProofOfWorkLimit = ~uint256(0) >> 20; // LightPayCoin starting difficulty is 1 / 2^12
+        nDefaultPort = 5899;
+        bnProofOfWorkLimit = ~uint256(0) >> 20; // Volix starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // LightPayCoin: 1 day
-        nTargetSpacing = 1 * 60;  // LightPayCoin: 1 minute
-        nLastPOWBlock = 90;
+        nTargetTimespan = 1 * 60; // Volix: 1 day
+        nTargetTimespantesting = 1 * 10;
+        nTargetSpacing = 1 * 60;  // Volix: 1 minute
+        nLastPOWBlock = 550;
         nMaturity = 50;
         nMasternodeCountDrift = 20;
-        nMasternodeCollateralLimit = 1000;
-        nModifierUpdateBlock = 615800;
+        nMasternodeCollateralLimit = 5000;
+        nModifierUpdateBlock = 2;
         nMaxMoneyOut = 21000000 * COIN;
 
         /**
@@ -123,24 +124,24 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "If you read this line in our code, then you are a genius, but why do you need it?!";
+        const char* pszTimestamp = "Volix Network StartGenesis - Aug-30-2018,Meanwhile BTC sees a slight upswing to 7100$";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 50 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("0457c56ed69a1f42398804504fcab82f430cc864c8fc8cd25b76e141d12c13012ee9d500e11f84d5f75f5c669e88ca196142ddb7406d3635d840fa5e9d2a6bb100") << OP_CHECKSIG;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1524873600;
+        genesis.nTime = 1517542208;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 2394236;
+        genesis.nNonce = 2361205;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("00000dfdec6a9190b26520e93ef5eba15a82646a47ddf8fb5be4477a836467ee"));
-        assert(genesis.hashMerkleRoot == uint256("98a0c0dc8214278a8a27ce9d7ca4107dd7cd6787ea6001d3d6c1a7b764098570"));
+        assert(hashGenesisBlock == uint256("0000003be7a98ea4ce83059f959b43ac7d94123de347be489f0f0767d90bc8de"));
+        assert(genesis.hashMerkleRoot == uint256("0624603ec8ea1360121d26f3336f38b256fdeace76d49c33a7cd92f219a6f5f7"));
 
         vSeeds.push_back(CDNSSeedData("80.211.202.181", "80.211.202.181"));         // Single node address
         vSeeds.push_back(CDNSSeedData("94.177.187.54", "94.177.187.54"));           // Single node address
@@ -199,21 +200,21 @@ public:
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // LightPayCoin: 1 day
-        nTargetSpacing = 1 * 60;  // LightPayCoin: 1 minute
+        nTargetTimespan = 1 * 60; // Volix: 1 day
+        nTargetSpacing = 1 * 60;  // Volix: 1 minute
         nLastPOWBlock = 200;
         nMaturity = 15;
         nMasternodeCountDrift = 4;
-        nMasternodeCollateralLimit = 1000;
+        nMasternodeCollateralLimit = 5000;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 43199500 * COIN;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1524873600;
-        genesis.nNonce = 2394236;
+        genesis.nTime = 1517542208;
+        genesis.nNonce = 2361205;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("00000dfdec6a9190b26520e93ef5eba15a82646a47ddf8fb5be4477a836467ee"));
+        assert(hashGenesisBlock == uint256("0000003be7a98ea4ce83059f959b43ac7d94123de347be489f0f0767d90bc8de"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -221,14 +222,14 @@ public:
         vSeeds.push_back(CDNSSeedData("80.211.202.181", "80.211.202.181"));         // Single node address
         vSeeds.push_back(CDNSSeedData("94.177.187.54", "94.177.187.54"));           // Single node address
 */
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet lightpaycoin addresses start with 'x' or 'y'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);  // Testnet lightpaycoin script addresses start with '8' or '9'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet volix addresses start with 'x' or 'y'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);  // Testnet volix script addresses start with '8' or '9'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 239);     // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
-        // Testnet lightpaycoin BIP32 pubkeys start with 'DRKV'
+        // Testnet volix BIP32 pubkeys start with 'DRKV'
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x3a)(0x80)(0x61)(0xa0).convert_to_container<std::vector<unsigned char> >();
-        // Testnet lightpaycoin BIP32 prvkeys start with 'DRKP'
+        // Testnet volix BIP32 prvkeys start with 'DRKP'
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x3a)(0x80)(0x58)(0x37).convert_to_container<std::vector<unsigned char> >();
-        // Testnet lightpaycoin BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet volix BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
@@ -274,10 +275,10 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
-        nTargetTimespan = 24 * 60 * 60; // LightPayCoin: 1 day
-        nTargetSpacing = 1 * 60;        // LightPayCoin: 1 minutes
+        nTargetTimespan = 24 * 60 * 60; // Volix: 1 day
+        nTargetSpacing = 1 * 60;        // Volix: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1524873600;
+        genesis.nTime = 1517542208;
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 906460;
 
