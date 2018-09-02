@@ -4167,8 +4167,8 @@ por ejemplo: alertnotify=echo %%s | mail -s "Volix Alert" admin@foo.com
         <translation>Debes especificar un masternodeprivkey en la configuración. Por favor mira la documentación por ayuda.</translation>
     </message>
     <message>
-        <source>(5899 could be used only on mainnet)</source>
-        <translation>(5899 puede ser utilizado solo en mainnet)</translation>
+        <source>(5897 could be used only on mainnet)</source>
+        <translation>(5897 puede ser utilizado solo en mainnet)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -4179,8 +4179,8 @@ por ejemplo: alertnotify=echo %%s | mail -s "Volix Alert" admin@foo.com
         <translation>(predeterminado: 1)</translation>
     </message>
     <message>
-        <source>(must be 5899 for mainnet)</source>
-        <translation>(debe ser 5899 para un mainnet)</translation>
+        <source>(must be 5897 for mainnet)</source>
+        <translation>(debe ser 5897 para un mainnet)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>

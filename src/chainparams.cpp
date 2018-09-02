@@ -91,12 +91,12 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x6a;
-        pchMessageStart[1] = 0x71;
-        pchMessageStart[2] = 0x41;
-        pchMessageStart[3] = 0x5d;
+        pchMessageStart[0] = 0x6b;
+        pchMessageStart[1] = 0x72;
+        pchMessageStart[2] = 0x4a;
+        pchMessageStart[3] = 0x5c;
         vAlertPubKey = ParseHex("040d75796902e3eda97815d744328237872309a95b42a74b22d7580e56b086fbc19ae1d6ef30c9e27d060c9c48692a663b9a321161e19f853ca6a6499cba7d17f6");
-        nDefaultPort = 5899;
+        nDefaultPort = 5897;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Volix starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
@@ -107,7 +107,7 @@ public:
         nTargetTimespan = 1 * 60; // Volix: 1 day
         // nTargetTimespantesting = 1 * 10;
         nTargetSpacing = 1 * 60;  // Volix: 1 minute
-        nLastPOWBlock = 550;
+        nLastPOWBlock = 300;
         nMaturity = 50;
         nMasternodeCountDrift = 20;
         nMasternodeCollateralLimit = 5000;
