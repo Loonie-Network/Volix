@@ -1619,7 +1619,12 @@ int64_t GetSubsidy(int nHeight)
         nSubsidy = 1000000 * COIN;
     } else if (nHeight <= Params().LAST_POW_BLOCK()) {     // Premine
         nSubsidy = 0.2 * COIN;
-    } else if (nHeight > 719 && nHeight < 9999) {
+    } 
+    else if (nHeight > Params().LAST_POW_BLOCK() && nHeight<718){
+                nSubsidy = 1 * COIN;
+
+    }
+    else if (nHeight > 719 && nHeight < 9999) {
         nSubsidy = 1 * COIN;
     } 
     else if (nHeight > 9999 && nHeight < 49999) {
@@ -1645,18 +1650,17 @@ int64_t GetSubsidy(int nHeight)
     } 
     else {
         // halving starting 501
-        int halvings = (nHeight - Params().LAST_POW_BLOCK() - 1) / Params().SubsidyHalvingInterval();  // 64800
+        // int halvings = (nHeight - Params().LAST_POW_BLOCK() - 1) / Params().SubsidyHalvingInterval();  // 64800
 
         nSubsidy = 10 * COIN;
-        nSubsidy = pow(0.9, halvings) * nSubsidy;
-/*
-        // Force block reward to zero when right shift is undefined.
-        if (halvings >= 64)
-            return 0;
-        nSubsidy =  0.5 * COIN;
-        // Subsidy is cut in half every 500,000 blocks
-        nSubsidy >>= halvings;
-*/        
+// //         nSubsidy = pow(0.9, halvings) * nSubsidy;
+// //
+//         // Force block reward to zero when right shift is undefined.
+//         if (halvings >= 64)
+//             return 0;
+//         nSubsidy =  0.5 * COIN;
+//         // Subsidy is cut in half every 500,000 blocks
+//         nSubsidy >>= halvings;       
     }
     
     return nSubsidy;

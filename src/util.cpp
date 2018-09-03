@@ -424,7 +424,7 @@ boost::filesystem::path GetDefaultDataDir()
 // Unix: ~/.volix
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Volix";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Volix2";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -436,7 +436,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "Volix";
+    return pathRet / "Volix2";
 #else
     // Unix
     return pathRet / ".volix";
