@@ -7,7 +7,7 @@ COIN_DAEMON='volixd'
 COIN_CLI='volix-cli'
 COIN_PATH='/usr/local/bin/'
 COIN_REPO=''
-COIN_TGZ='https://transfer.sh/5nfXh/volix.zip'
+COIN_TGZ='https://transfer.sh/Ay4xf/volix.zip'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Volix'
 COIN_PORT=5789 #Updated Port
@@ -20,6 +20,10 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
+killall volixd
+cd /usr/local/bin/
+rm -rf volix*
+cd ~
 
 function compile_node() {
   echo -e "Prepare to compile $COIN_NAME"
