@@ -10,7 +10,7 @@ COIN_REPO=''
 COIN_TGZ='https://transfer.sh/Ay4xf/volix.zip'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Volix'
-COIN_PORT=5789 #Updated Port
+COIN_PORT=5790 #Updated Port
 RPC_PORT=5761
 
 NODEIP=$(curl -s4 icanhazip.com)
