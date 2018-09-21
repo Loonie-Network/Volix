@@ -43,14 +43,15 @@ fi
 
 # Stopping Masternode
 echo -e "${GREEN}==>${NC} Stopping Volix Masternode process."
-${VOLIXCLI} stop > /dev/null
-ps -C volixd > /dev/null
-RUNNING=$(echo $?)
-while [ $RUNNING -eq 0 ]; do
-    sleep 5
-    ps -C volixd > /dev/null
-    RUNNING=$(echo $?)
-done
+# ${VOLIXCLI} stop > /dev/null
+# ps -C volixd > /dev/null
+# RUNNING=$(echo $?)
+# while [ $RUNNING -eq 0 ]; do
+#     sleep 5
+#     ps -C volixd > /dev/null
+#     RUNNING=$(echo $?)
+# done
+volix-cli stop
 echo -e "    Masternode process stopped successfully.\n"
 
 
