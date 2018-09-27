@@ -1,8 +1,8 @@
-Volix (fork of PIVX) integration/staging repository
+Volix (fork of PIVX Core) integration/staging repository
 ======================================
 
 
-It is recommended [use the shell script](https://github.com/lpcproject/lpcinstall) to install a Volix Masternode on a Linux server running Ubuntu 14.04 or 16.04
+
 
 ***
 
@@ -19,7 +19,7 @@ Installation of libraries (using root user):
 Cloning the repository and compiling (use any user with the sudo group):
 
     cd
-    git clone https://github.com/lpcproject/Volix.git
+    git clone https://github.com/VolixNetwork/Volix.git
     cd Volix
     ./autogen.sh
     ./configure
@@ -45,8 +45,17 @@ Demon status:
 
 All binaries for different operating systems, you can download in the releases repository:
 
-https://github.com/lpcproject/Volix/releases
+
 
 P2P port: 5790, RPC port: 5761
 -
 Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+Credits:
+Dash
+Bitcoin
+PIVX
+Peercoin
+Blocknode
+ALQO
+LPC
